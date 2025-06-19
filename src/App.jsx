@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Textarea from './components/Textarea';
 import TextareaSettings from './components/TextareaSettings';
@@ -6,6 +6,7 @@ import StatisticsCards from './components/StatisticsCards';
 import LetterDensity from './components/LetterDensity';
 import LogoNavbar from './assets/logo-navbar.svg';
 import LightTheme from './assets/light-theme.svg';
+import DarkTheme from './assets/dark-theme.svg';
 
 //----Word Count---
 //`Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -17,6 +18,15 @@ const App = () => {
   let [excludeSpaces, setExcludeSpaces] = useState(false);
   let [hasCharacterLimit, setHasCharacterLimit] = useState(false);
   let [characterLimit, setCharacterLimit] = useState(undefined);
+  let [darkTheme, setDarkTheme] = useState(false);
+
+  useEffect(() => {
+    if (darkTheme) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }, [darkTheme]);
 
   return (
     <>
@@ -25,7 +35,12 @@ const App = () => {
           <img src={LogoNavbar} />
           <p>Character Counter</p>
         </div>
-        <img src={LightTheme} />
+        <button
+          className="button-switch-theme"
+          onClick={() => setDarkTheme((prev) => !prev)}
+        >
+          <img src={darkTheme ? DarkTheme : LightTheme} />
+        </button>
       </div>
       <h1 className="title">Analyze your text in real-time.</h1>
       <Textarea

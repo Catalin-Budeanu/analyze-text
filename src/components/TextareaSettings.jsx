@@ -55,6 +55,7 @@ const TextareaSettings = ({
             <label htmlFor="character-limit">Set character limits</label>
             {hasCharacterLimit === true ? (
               <input
+                className="input-character-limit"
                 type="number"
                 onChange={handleCharacterLimitChange}
                 value={characterLimit}

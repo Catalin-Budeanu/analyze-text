@@ -9,6 +9,30 @@
   --color-black-font: #12131a;
 }
 
+body {
+  background-color: white;
+  color: #12131a;
+}
+
+body.dark {
+  background-color: #12131a;
+  color: white;
+}
+
+.button-switch-theme {
+  background-color: transparent;
+  outline: none;
+}
+
+.button-switch-theme:focus,
+.button-switch-theme:focus-visible {
+  outline: none;
+}
+
+.button-switch-theme:hover {
+  border: none;
+}
+
 .navbar-section {
   display: flex;
   flex-direction: row;
@@ -105,6 +129,16 @@
   font-size: 20px;
   font-weight: 500;
 }
+
+.input-character-limit {
+  border-radius: 8px;
+  margin-left: 8px;
+  text-align: right;
+  width: 55px;
+  background-color: #e4e4ef;
+  border: 2px solid #404254;
+}
+
 @media (min-width: 768px) {
   .textarea-settings-container {
     display: flex;
